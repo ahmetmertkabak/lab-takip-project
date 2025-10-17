@@ -35,12 +35,8 @@ async function main() {
   // Gömülü Laboratuvarı için 14 bilgisayar
   const gömülüComputers = []
   for (let i = 1; i <= 14; i++) {
-    const computer = await prisma.computer.upsert({
-      where: { 
-        name: `Gömülü-${i.toString().padStart(2, '0')}`,
-      },
-      update: {},
-      create: {
+    const computer = await prisma.computer.create({
+      data: {
         name: `Gömülü-${i.toString().padStart(2, '0')}`,
         labId: gömülüLab.id,
       },
@@ -52,12 +48,8 @@ async function main() {
   // Bilgisayar Laboratuvarı için 12 bilgisayar
   const bilgisayarComputers = []
   for (let i = 1; i <= 12; i++) {
-    const computer = await prisma.computer.upsert({
-      where: { 
-        name: `BilLab-${i.toString().padStart(2, '0')}`,
-      },
-      update: {},
-      create: {
+    const computer = await prisma.computer.create({
+      data: {
         name: `BilLab-${i.toString().padStart(2, '0')}`,
         labId: bilgisayarLab.id,
       },
@@ -69,12 +61,8 @@ async function main() {
   // Network Laboratuvarı için 8 bilgisayar
   const networkComputers = []
   for (let i = 1; i <= 8; i++) {
-    const computer = await prisma.computer.upsert({
-      where: { 
-        name: `Network-${i.toString().padStart(2, '0')}`,
-      },
-      update: {},
-      create: {
+    const computer = await prisma.computer.create({
+      data: {
         name: `Network-${i.toString().padStart(2, '0')}`,
         labId: networkLab.id,
       },
